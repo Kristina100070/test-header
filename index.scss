@@ -1,0 +1,124 @@
+$family: unquote($string: "Open Sans");
+
+@import url("https://fonts.googleapis.com/css2?family=#{$family}&display=swap");
+
+h4{
+    margin: 0;
+}
+body{
+    margin: 0;
+}
+
+.header {
+  &__top {
+    background-color:#FAFBFC;
+    min-height: 32px;
+    display: grid;
+  }
+  &__container {
+    margin: 0 85px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__main {
+      min-height: 76px;
+  }
+  &__location {
+    font-family: $family;
+    font-size: 12px;
+    line-height: 20px;
+
+    &_logo {  
+      margin-right: 8px;   
+    } 
+  }
+  &__nav {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+ 
+      &_item {
+        text-decoration: none;
+        color: #708598;
+        font-size: 12px;
+        line-height: 20px;
+        margin-right: 4%;
+      }
+      &_item:last-of-type {
+        margin-right: 0;
+      }
+  }
+  &__button {
+    border-radius: 4px;
+    border: none;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 116px;
+  }
+  &__search {
+    height: 40px;
+    min-width: 40%;
+    border: 1px solid #ECEFF1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+    
+  }
+  &__user-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #9B51E0;;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: white;
+    font-family: $family;
+    text-decoration: none;
+  }
+}
+.button {
+    &__catalog {
+        background-color: #FED83D;
+    }
+    &__list {
+        background-color:#FAFBFC;
+        border: 1px solid #ECEFF1;
+    }
+    
+    &__logo{
+      position: relative;
+
+      &_dots {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: red;
+      }
+    }
+    &__title{
+      font-family: $family;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+    }
+}
+.search {
+    border: none;
+    width: 100%;
+    font-family: $family;
+    font-size: 14px;
+    line-height: 24px;   
+}

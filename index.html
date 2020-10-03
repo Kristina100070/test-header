@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <title>Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header__top">
+            <div class="header__container">
+              <div class="header__location">
+                <img class="header__location_logo" src="./images/location.png">
+                Волгоградская область
+            </div>
+            <nav class="header__nav">
+                <a href="/" class="header__nav_item">Тендеры</a>
+                <a href="/" class="header__nav_item">База подрядчиков</a>
+                <a href="/" class="header__nav_item">Другие сервисы
+                    <img class="header__nav_logo" src="./images/Vector.png">
+                </a>
+            </nav>
+        </div></div>
+        
+        <div class="header__container header__main">
+            <a href="/" class="header__logo"><img src="./images/logo.png"></a>
+            <button class="header__button button button__catalog">
+                <img class="button__logo" src="./images/menu.png">
+                <h4 class="button__title">Каталог</h4>
+            </button>
+
+            <div id="app" class="header__search">
+                <input class="search" 
+                  placeholder="Хочу найти..." 
+                  type="text" 
+                  v-model="query">
+                <ul class="search__result" 
+                style="position: absolute;
+                 top: 80px;
+                 list-style-type: none">
+                    <li v-for="match in matches"
+                    :key="match"
+                    v-text="match"
+                    @click="add">    
+                    </li>
+                </ul>
+                <img class="search__logo" src="./images/search.png">
+            </div>
+
+            <button class="header__button button__list">
+                <div class="button__logo"><img src="./images/list.png">
+                  <span class="button__logo_dots"></span>
+                </div>
+                <h4 class="button__title">Список</h4>
+            </button>
+           
+            <a href="/" class="header__user-logo">A</a>
+        </div>
+    </header>
+    <script type="text/javascript">
+
+        new Vue({
+    el: '#app',
+    data: {
+        query: '',
+        arr: [
+        'привет', 'добрый день', 'пока', 'hello', 'good luck', 'buy'
+    ],
+    
+    },
+    computed: {
+      matches() {
+          if (this.query == '') {
+              return [];
+          }
+          return this.arr.filter((i) => i.includes(this.query))
+      }
+    },
+    methods: {
+        add(value) {
+            this.query = value.path[0].innerText;
+            value.path[0].innerText = '';
+        }
+    }
+        })
+
+        </script>
+</body>
+</html>
